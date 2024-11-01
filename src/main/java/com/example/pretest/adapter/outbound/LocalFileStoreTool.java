@@ -15,7 +15,11 @@ public class LocalFileStoreTool implements IFileStoreTool {
     private final String storageDirectory;
 
     public LocalFileStoreTool(String storageDirectory) {
-        this.storageDirectory = storageDirectory;
+        if (!storageDirectory.endsWith("/")) {
+            this.storageDirectory = storageDirectory + "/";
+        } else {
+            this.storageDirectory = storageDirectory;
+        }
     }
 
     @Override
